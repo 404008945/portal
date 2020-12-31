@@ -1,5 +1,6 @@
 package com.xishan.store.portal.portalweb.response;
 
+import com.xishan.store.base.annoation.ResponseJsonFormat;
 import com.xishan.store.base.util.Response;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -11,7 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 public class ObjResponseBodyAdvice  implements ResponseBodyAdvice<Object> {
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
-        return  false;//所有的都处理
+        return  returnType.getMethodAnnotation(ResponseJsonFormat.class)!=null;
     }
 
     @Override
