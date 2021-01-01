@@ -2,6 +2,7 @@ package com.xishan.store.portal.portalweb;
 
 import com.xishan.store.portal.portalweb.interceptor.AuthorityInterceptor;
 import com.xishan.store.portal.portalweb.response.ObjResponseBodyAdvice;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +19,8 @@ import java.util.Collections;
 @Configuration
 public class MvcSupportConfig extends WebMvcConfigurationSupport {
 
+    @Autowired
+    private ObjResponseBodyAdvice objResponseBodyAdvice;
     /**
      * 重写注册RequestMappingHandlerAdapter 加入项目需要的advisor
      * @param contentNegotiationManager
@@ -31,7 +34,7 @@ public class MvcSupportConfig extends WebMvcConfigurationSupport {
             @Qualifier("mvcConversionService") FormattingConversionService conversionService,
             @Qualifier("mvcValidator") Validator validator) {
         RequestMappingHandlerAdapter adapter =     super.requestMappingHandlerAdapter(contentNegotiationManager,conversionService,validator);
-        adapter.setResponseBodyAdvice(Collections.singletonList(new ObjResponseBodyAdvice()));
+        adapter.setResponseBodyAdvice(Collections.singletonList(objResponseBodyAdvice));
         return adapter;
     }
 
