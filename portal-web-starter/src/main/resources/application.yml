@@ -31,4 +31,6 @@ spring:
   session:
     store-type: REDIS
 
-
+logging:
+  level:
+    root: info
