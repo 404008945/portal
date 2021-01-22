@@ -26,8 +26,13 @@
         </dependency>
 
         <dependency>
-            <groupId>com.xishan.store.usercenter.userweb</groupId>
-            <artifactId>user-web-starter</artifactId>
+            <groupId>com.xishan.store.usercenter</groupId>
+            <artifactId>user-web-autoconfigure</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xishan.store.item</groupId>
+            <artifactId>web-autoconfigure</artifactId>
         </dependency>
     </dependencies>
 
