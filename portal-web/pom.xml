@@ -34,6 +34,11 @@
             <groupId>com.xishan.store.item</groupId>
             <artifactId>web-autoconfigure</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.xishan.store.trade</groupId>
+            <artifactId>web-autoconfigure</artifactId>
+        </dependency>
     </dependencies>
 
 
